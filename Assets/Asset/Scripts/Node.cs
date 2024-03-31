@@ -7,6 +7,7 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor;
     private Color startColor;
+    public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
 
     private Renderer rend;
@@ -54,7 +55,14 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        rend.material.color = hoverColor;
+        if (buildManager.hasMoney)
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
     }
     void OnMouseExit()
     {
