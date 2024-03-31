@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
 
     [Header("Attributes")]
     public float range = 15f;
-     public float fireRate = 1f;
+    public float fireRate = 1f;
     private float fireCD = 0f;
 
     [Header("Unity Setup Field")]
