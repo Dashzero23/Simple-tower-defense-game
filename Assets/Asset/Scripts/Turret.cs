@@ -6,17 +6,24 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
 
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 15f;
+    
+    [Header("Use Bullet (default)")]
     public float fireRate = 1f;
     private float fireCD = 0f;
+    public GameObject bulletPrefab;
+
+    [Header("Use Laser")]
+    public bool userLaser = false;
+    public LineRenderer lineRenderer;
 
     [Header("Unity Setup Field")]
 
     public float turnSpeed = 10f;
     public Transform partToRotate;
     public string enemyTag = "enemy";
-    public GameObject bulletPrefab;
+    
     public Transform firePoint;
     // Start is called before the first frame update
     void Start()
@@ -55,22 +62,35 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
+            if (userLaser)
+            {
+                if (lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                }
+            }
+
             return;
         }
 
         // Target lock
-        Vector3 direction = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        
-        if (fireCD <= 0f)
+        LockOnTarget();
+
+        if (userLaser)
         {
-            Shoot();
-            fireCD = 1f / fireRate;
+            Laser();
         }
 
-        fireCD -= Time.deltaTime;
+        else
+        {
+            if (fireCD <= 0f)
+            {
+                Shoot();
+                fireCD = 1f / fireRate;
+            }
+
+            fireCD -= Time.deltaTime;
+        }
     }
 
     void Shoot()
@@ -88,5 +108,22 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+    void LockOnTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+
+    void Laser()
+    {
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+        }
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
     }
 }
