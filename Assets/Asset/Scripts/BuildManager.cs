@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
     public GameObject buildEffect;
-
     void Awake()
     {
         if (Instance != null)
@@ -19,6 +19,8 @@ public class BuildManager : MonoBehaviour
     }
 
     private Blueprint turretToBuild;
+    private Node selectedNode;
+    public NodeUI nodeUI;
 
     public bool canBuild { get { return turretToBuild != null; } }
     public bool hasMoney { get { return PlayerStat.Money >= turretToBuild.cost; } }
@@ -37,8 +39,29 @@ public class BuildManager : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
     }
+
+    public void SelectNode (Node node)
+    {
+        if (selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.Hide();
+    }
     public void SelectTurretToBuild (Blueprint turret)
     {
         turretToBuild = turret;
+        DeselectNode();
     }
 }
