@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,8 +12,12 @@ public class Node : MonoBehaviour
     public Vector3 positionOffset;
 
     private Renderer rend;
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public Blueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     BuildManager buildManager;
     void Start()
@@ -44,7 +49,43 @@ public class Node : MonoBehaviour
             return;
         }
 
-        buildManager.BuildTurretOn(this);
+        BuildTurret(buildManager.GetTurretToBuild());
+    }
+
+    void BuildTurret (Blueprint blueprint)
+    {
+        if (PlayerStat.Money < blueprint.cost)
+        {
+            Debug.Log("Not enough money");
+            return;
+        }
+        PlayerStat.Money -= blueprint.cost;
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+
+        turret = _turret;
+        turretBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+    public void UpgradeTurret()
+    {
+        if (PlayerStat.Money < turretBlueprint.upgradeCost)
+        {
+            Debug.Log("Not enough money to upgrade");
+            return;
+        }
+        PlayerStat.Money -= turretBlueprint.upgradeCost;
+        
+        Destroy(turret);
+
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+
+        isUpgraded = true;
+        
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
     }
     void OnMouseEnter()
     {
