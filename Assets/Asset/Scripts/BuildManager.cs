@@ -7,6 +7,8 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
     public GameObject buildEffect;
+    public GameObject sellEffect;
+
     void Awake()
     {
         if (Instance != null)

@@ -290,10 +290,10 @@ RectTransform:
   - {fileID: 113062295}
   m_Father: {fileID: 1019156982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 52.5, y: -31.39}
+  m_SizeDelta: {x: 105, y: 62.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26389135
 MonoBehaviour:
@@ -3656,10 +3656,10 @@ RectTransform:
   - {fileID: 1349832434}
   m_Father: {fileID: 1019156982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 157.5, y: -31.39}
+  m_SizeDelta: {x: 105, y: 62.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356556225
 MonoBehaviour:
@@ -3707,7 +3707,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1542152298}
         m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: Sell
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12025,7 +12025,7 @@ GameObject:
   - component: {fileID: 1349832436}
   - component: {fileID: 1349832435}
   m_Layer: 0
-  m_Name: Cost
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13393,6 +13393,7 @@ MonoBehaviour:
   ui: {fileID: 1829157444}
   upgradeButton: {fileID: 26389135}
   upgradeCost: {fileID: 113062293}
+  sellAmount: {fileID: 1349832435}
 --- !u!1001 &1542853221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16712,7 +16713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1829157445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18118,6 +18119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildEffect: {fileID: 1004803583519910618, guid: c41ee18eaaaacff4c9c8f2c8b62c2944, type: 3}
+  sellEffect: {fileID: 1004803583519910618, guid: 8fc644a36110703439dffc4616a9ac47, type: 3}
   nodeUI: {fileID: 1542152298}
 --- !u!114 &1972538135
 MonoBehaviour:
@@ -18613,12 +18615,12 @@ MonoBehaviour:
   missileTurret:
     prefab: {fileID: 9194188927836840235, guid: 79fff7389bb9e4844a16f871bd6a67bf, type: 3}
     cost: 250
-    upgradedPrefab: {fileID: 0}
+    upgradedPrefab: {fileID: 9194188927836840235, guid: 6a4182fe8a141fc4a81bb6ad0b43049c, type: 3}
     upgradeCost: 350
   laserBeamer:
     prefab: {fileID: 1762912724010579324, guid: 7b468170830b4d14aa5323d5e9859e90, type: 3}
     cost: 350
-    upgradedPrefab: {fileID: 0}
+    upgradedPrefab: {fileID: 1762912724010579324, guid: 4bffec30e069b9648934d7297a6b2763, type: 3}
     upgradeCost: 500
 --- !u!114 &2060804409
 MonoBehaviour:
