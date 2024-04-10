@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 5f);
 
         PlayerStat.Money += drop;
-
+        WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
 }
