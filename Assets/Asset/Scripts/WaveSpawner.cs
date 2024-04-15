@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using Unity.VisualScripting;
 
 public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
     public Wave[] waves;
-    public Transform spawnPoint;
+    private Transform spawnPoint;
 
     public float TimeBetweenWave = 5f;
     private float countdown = 2f;
-    public TextMeshProUGUI waveCountdownText; 
+    public TextMeshProUGUI waveCountdownText;
 
+    public GameManager gameManager;
     private int waveIndex = 0;
 
     void Update()
@@ -42,16 +45,28 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
-        for (int i  = 0; i < wave.count; i++)
+        WayPoints.SetWaypointsSet(wave.wayPointSet);
+        spawnPoint = WayPoints.GetStartPoint();
+
+        foreach (int value in wave.count)
         {
-            SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(1f/ wave.rate);
+            EnemiesAlive += value;
+        }
+
+        for (int i = 0; i < wave.enemy.Length; i++)
+        {
+            for (int j = 0; j < wave.count[i]; j++)
+            {
+                SpawnEnemy(wave.enemy[i]);
+                yield return new WaitForSeconds(1f / wave.rate[i]);
+            }
         }
 
         waveIndex++;
 
         if (waveIndex == waves.Length)
         {
+            gameManager.WinLevel();
             this.enabled = false;
         }
     }
@@ -59,6 +74,5 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
     }
 }
