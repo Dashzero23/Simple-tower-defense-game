@@ -23,7 +23,6 @@ public class Turret : MonoBehaviour
 
     [Header("Use Laser")]
     public bool userLaser = false;
-    public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light impactLight;
     public int damgeOverTime = 10;
@@ -33,7 +32,7 @@ public class Turret : MonoBehaviour
     public float turnSpeed = 10f;
     public Transform partToRotate;
     public string enemyTag = "enemy";
-    public Transform firePoint;
+    public Transform[] firePoints;
 
     void Start()
     {
@@ -73,12 +72,16 @@ public class Turret : MonoBehaviour
         {
             if (userLaser)
             {
-                if (lineRenderer.enabled)
+                foreach (Transform firePoint in firePoints)
                 {
-                    lineRenderer.enabled = false;
-                    impactEffect.Stop();
-                    impactLight.enabled = false;
+                    LineRenderer lineRenderer = firePoint.GetComponent<LineRenderer>();
+                    if (lineRenderer.enabled)
+                    {
+                        lineRenderer.enabled = false;
+                    }
                 }
+                impactEffect.Stop();
+                impactLight.enabled = false;
             }
 
             return;
@@ -120,12 +123,15 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-
-        if (bullet != null)
+        foreach (Transform firePoint in firePoints)
         {
-            bullet.Seek(target);
+            GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+            if (bullet != null)
+            {
+                bullet.Seek(target);
+            }
         }
     }
 
@@ -147,18 +153,26 @@ public class Turret : MonoBehaviour
         targetEnemy.TakeDamage(damgeOverTime * Time.deltaTime);
         targetEnemy.Slow(slowPercent);
 
-        if (!lineRenderer.enabled)
+        foreach (Transform firePoint in firePoints)
         {
-            lineRenderer.enabled = true;
-            impactEffect.Play();
-            impactLight.enabled = true;
+            LineRenderer lineRenderer = firePoint.GetComponent<LineRenderer>();
+
+            if (lineRenderer != null)
+            {
+                if (!lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = true;
+                    impactEffect.Play();
+                    impactLight.enabled = true;
+                }
+
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, target.position);
+
+                Vector3 dir = firePoint.position - target.position;
+                impactEffect.transform.rotation = Quaternion.LookRotation(dir);
+                impactEffect.transform.position = target.position + (dir.normalized * 1f);
+            }
         }
-        lineRenderer.SetPosition(0, firePoint.position);
-        lineRenderer.SetPosition(1, target.position);
-
-        Vector3 dir = firePoint.position - target.position;
-
-        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
-        impactEffect.transform.position = target.position + (dir.normalized * 1f);
     }
 }

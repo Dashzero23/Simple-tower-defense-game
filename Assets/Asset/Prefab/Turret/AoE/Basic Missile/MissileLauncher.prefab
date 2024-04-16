@@ -292,4 +292,5 @@ MonoBehaviour:
   turnSpeed: 10
   partToRotate: {fileID: 2252032651400135131}
   enemyTag: enemy
-  firePoint: {fileID: 3663446511241711580}
+  firePoints:
+  - {fileID: 3663446511241711580}

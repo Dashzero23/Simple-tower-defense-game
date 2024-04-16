@@ -280,6 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   fireRate: 0.4
+  burstRate: 0
+  burstCount: 1
   bulletPrefab: {fileID: 4209885248589365959, guid: 16ee214fc5e7248408d07dcd7a6d3b1d, type: 3}
   userLaser: 0
   lineRenderer: {fileID: 0}
@@ -290,4 +292,5 @@ MonoBehaviour:
   turnSpeed: 10
   partToRotate: {fileID: 2252032651400135131}
   enemyTag: enemy
-  firePoint: {fileID: 3663446511241711580}
+  firePoints:
+  - {fileID: 3663446511241711580}
