@@ -1393,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091048691488117463, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
       propertyPath: m_Name
-      value: LevelButton (1)
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 7741790625068658590, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1533,7 +1533,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091048691488117463, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
       propertyPath: m_Name
-      value: LevelButton
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741790625068658590, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 782932026}
+    - target: {fileID: 7741790625068658590, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1650,7 +1658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091048691488117463, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
       propertyPath: m_Name
-      value: LevelButton (2)
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 7741790625068658590, guid: e58efd5e1e41b514fb1a937f743a79fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

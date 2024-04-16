@@ -20,6 +20,11 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.GameIsOver)
+        {
+            return;
+        }
+
         if (EnemiesAlive > 0)
         {
             return;
@@ -37,6 +42,12 @@ public class WaveSpawner : MonoBehaviour
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
         waveCountdownText.text = string.Format("Time: {0:00.00}", countdown);
+
+        if (waveIndex == waves.Length && EnemiesAlive == 0)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
     }
 
     IEnumerator SpawnWave()
@@ -63,12 +74,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
-
-        if (waveIndex == waves.Length)
-        {
-            gameManager.WinLevel();
-            this.enabled = false;
-        }
     }
 
     void SpawnEnemy(GameObject enemy)
