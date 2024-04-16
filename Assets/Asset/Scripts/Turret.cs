@@ -13,6 +13,12 @@ public class Turret : MonoBehaviour
     [Header("Use Bullet (default)")]
     public float fireRate = 1f;
     private float fireCD = 0f;
+    
+    public int burstRate = 0;
+    public int burstCount = 1;
+
+    private float burstCD = 0;
+    private int curBurst = 0;
     public GameObject bulletPrefab;
 
     [Header("Use Laser")]
@@ -88,13 +94,27 @@ public class Turret : MonoBehaviour
 
         else
         {
-            if (fireCD <= 0f)
+            if (curBurst < burstCount && curBurst < burstCount)
             {
-                Shoot();
-                fireCD = 1f / fireRate;
+                if (fireCD <= 0f)
+                {
+                    Shoot();
+                    curBurst++;
+                    fireCD = 1f / fireRate;
+                }
+
+                fireCD -= Time.deltaTime;
+                burstCD = burstRate;
             }
 
-            fireCD -= Time.deltaTime;
+            else
+            {
+                if (burstCD <= 0f)
+                {
+                    curBurst = 0;
+                }
+                burstCD -= Time.deltaTime;
+            }
         }
     }
 

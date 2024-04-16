@@ -61,8 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5df9bde1c59299d4a9fdef69ae4b70d8, type: 2}
-  - {fileID: 2100000, guid: 29b7ffc8a02769c4f9b99a1b3a8615f1, type: 2}
+  - {fileID: 2100000, guid: db553095be708174c85b878f20fc3010, type: 2}
+  - {fileID: 2100000, guid: 72e3a551bd955ef43a4f6904fe51726a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,9 +145,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 292fe8804cd5f9044a38cfeab8de1269, type: 2}
-  - {fileID: 2100000, guid: 23b20535916921b43abc76c8bf0189ab, type: 2}
-  - {fileID: 2100000, guid: 78b672b0631510d40a36387687c218ce, type: 2}
+  - {fileID: 2100000, guid: 292bcfb3a4d4f4d47bc3046baface936, type: 2}
+  - {fileID: 2100000, guid: 7ea771235cad99f4b9593953c48c7dfb, type: 2}
+  - {fileID: 2100000, guid: 6972bf5b573d7dd4d84722d90d3971be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,8 +178,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8258685414787384832}
+  - component: {fileID: 2259138724338027419}
   m_Layer: 0
-  m_Name: LaserBeamer_Upgraded
+  m_Name: LaserBeamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,13 +196,38 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3133856897448494844}
   - {fileID: 154605688881113420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2259138724338027419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762912724010579324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f400274c881cfcc4e86f6ae1b1542d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 30
+  fireRate: 1
+  bulletPrefab: {fileID: 0}
+  userLaser: 1
+  lineRenderer: {fileID: 1857149264933822836}
+  impactEffect: {fileID: 9145619938447384647}
+  impactLight: {fileID: 515417139270561413}
+  damgeOverTime: 10
+  slowPercent: 0.5
+  turnSpeed: 10
+  partToRotate: {fileID: 1706087757247019257}
+  enemyTag: enemy
+  firePoint: {fileID: 5515809142064695487}
 --- !u!1 &1816634720687298970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5421,8 +5447,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: 3
+      scalar: 3
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10009,7 +10035,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.5442691, g: 1, b: 0, a: 1}
   m_Intensity: 3
-  m_Range: 15
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10098,7 +10124,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154605688881113420}
-  - component: {fileID: 7821179096399733649}
   - component: {fileID: 1857149264933822836}
   m_Layer: 0
   m_Name: LaserBeamerGO
@@ -10124,31 +10149,6 @@ Transform:
   - {fileID: 1706087757247019257}
   m_Father: {fileID: 8258685414787384832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7821179096399733649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8949720171633414331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f400274c881cfcc4e86f6ae1b1542d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 40
-  fireRate: 1
-  bulletPrefab: {fileID: 0}
-  userLaser: 1
-  lineRenderer: {fileID: 1857149264933822836}
-  impactEffect: {fileID: 9145619938447384647}
-  impactLight: {fileID: 515417139270561413}
-  damgeOverTime: 20
-  slowPercent: 0.8
-  turnSpeed: 10
-  partToRotate: {fileID: 1706087757247019257}
-  enemyTag: enemy
-  firePoint: {fileID: 5515809142064695487}
 --- !u!120 &1857149264933822836
 LineRenderer:
   serializedVersion: 2
@@ -10201,8 +10201,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.3392102
-        value: 0.39235383
+        time: 0.2775876
+        value: 0.32272798
         inSlope: 0
         outSlope: 0
         tangentMode: 0
