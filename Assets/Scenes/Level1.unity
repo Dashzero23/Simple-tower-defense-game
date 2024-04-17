@@ -4521,7 +4521,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3983315941670709335, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
       propertyPath: m_text
-      value: $350
+      value: $100
       objectReference: {fileID: 0}
     - target: {fileID: 4142805844091317170, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
       propertyPath: m_Name
@@ -13509,7 +13509,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3983315941670709335, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
       propertyPath: m_text
-      value: $250
+      value: $125
       objectReference: {fileID: 0}
     - target: {fileID: 4142805844091317170, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
       propertyPath: m_Name
@@ -20281,22 +20281,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy:
-    - {fileID: 5753360549441103403, guid: e55424fa3fb02c64b885a84a549ce68b, type: 3}
-    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
-    count: 0200000003000000
-    rate:
-    - 1
-    - 2
-    wayPointSet: 0
-  - enemy:
-    - {fileID: 5753360549441103403, guid: e55424fa3fb02c64b885a84a549ce68b, type: 3}
     - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
-    count: 0100000003000000
+    count: 14000000
     rate:
-    - 2
-    - 1
+    - 0.7
     wayPointSet: 0
-  TimeBetweenWave: 5.5
+    timeBetweenWave: 18
+  - enemy:
+    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
+    - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
+    count: 060000000a000000
+    rate:
+    - 1.5
+    - 0.7
+    wayPointSet: 0
+    timeBetweenWave: 25
+  - enemy:
+    - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
+    count: 18000000
+    rate:
+    - 0.5
+    wayPointSet: 0
+    timeBetweenWave: 18
+  - enemy:
+    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
+    - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
+    count: 040000000c000000
+    rate:
+    - 1.5
+    - 0.7
+    wayPointSet: 0
+    timeBetweenWave: 18
+  - enemy:
+    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
+    count: 06000000
+    rate:
+    - 1.5
+    wayPointSet: 0
+    timeBetweenWave: 18
+  - enemy:
+    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
+    - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
+    - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
+    - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
+    count: 020000000a000000020000000a000000
+    rate:
+    - 1.5
+    - 0.7
+    - 1.5
+    - 0.7
+    wayPointSet: 0
+    timeBetweenWave: 0
   waveCountdownText: {fileID: 1575047896}
   gameManager: {fileID: 1972538136}
 --- !u!4 &1972538133
@@ -21043,8 +21078,8 @@ GameObject:
   - component: {fileID: 2060804407}
   - component: {fileID: 2060804411}
   - component: {fileID: 2060804410}
-  - component: {fileID: 2060804409}
   - component: {fileID: 2060804408}
+  - component: {fileID: 2060804412}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -21071,8 +21106,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 110.81857}
-  m_SizeDelta: {x: 0, y: 221.63708}
+  m_AnchoredPosition: {x: -800.7031, y: 510.20975}
+  m_SizeDelta: {x: -1601.4062, y: 1020.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2060804408
 MonoBehaviour:
@@ -21088,45 +21123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurret:
     prefab: {fileID: 7784586913545930396, guid: 2f9ce0e3684dc9542a3fef5c44f6687d, type: 3}
-    cost: 100
+    cost: 70
     upgradedPrefab: {fileID: 7784586913545930396, guid: eb14215f09e0c8d4992bf0fe7c532c7a, type: 3}
     upgradeCost: 150
   missileTurret:
     prefab: {fileID: 9194188927836840235, guid: 79fff7389bb9e4844a16f871bd6a67bf, type: 3}
-    cost: 250
+    cost: 125
     upgradedPrefab: {fileID: 9194188927836840235, guid: 6a4182fe8a141fc4a81bb6ad0b43049c, type: 3}
     upgradeCost: 350
   laserBeamer:
     prefab: {fileID: 1762912724010579324, guid: 7b468170830b4d14aa5323d5e9859e90, type: 3}
-    cost: 350
+    cost: 100
     upgradedPrefab: {fileID: 1762912724010579324, guid: 4bffec30e069b9648934d7297a6b2763, type: 3}
     upgradeCost: 500
---- !u!114 &2060804409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060804406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 20
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!114 &2060804410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21165,6 +21174,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060804406}
   m_CullTransparentMesh: 1
+--- !u!114 &2060804412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060804406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &2064806941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21942,6 +21977,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060804407}
     m_Modifications:
+    - target: {fileID: 3983315941670709335, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
+      propertyPath: m_text
+      value: $70
+      objectReference: {fileID: 0}
     - target: {fileID: 4142805844091317170, guid: 3a5b3adb463b92e4b84b8060356fb9e5, type: 3}
       propertyPath: m_Name
       value: StandardTurret

@@ -278,13 +278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f400274c881cfcc4e86f6ae1b1542d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 30
-  fireRate: 0.25
+  range: 12
+  fireRate: 0.33
   burstRate: 0
   burstCount: 1
   bulletPrefab: {fileID: 4209885248589365959, guid: fc898ebfdec442948bc557d6cd99bdf8, type: 3}
   userLaser: 0
-  lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
   damgeOverTime: 10

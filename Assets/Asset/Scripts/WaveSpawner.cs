@@ -11,13 +11,17 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     private Transform spawnPoint;
 
-    public float TimeBetweenWave = 5f;
+    //public float TimeBetweenWave = 5f;
     private float countdown = 2f;
     public TextMeshProUGUI waveCountdownText;
 
     public GameManager gameManager;
     private int waveIndex = 0;
 
+    void Start()
+    {
+        countdown = 10f;
+    }
     void Update()
     {
         if (GameManager.GameIsOver)
@@ -25,15 +29,15 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        if (EnemiesAlive > 0)
+        /*if (EnemiesAlive > 0)
         {
             return;
-        }
+        }*/
 
         if (countdown <= 0)
         {
             StartCoroutine(SpawnWave());
-            countdown = TimeBetweenWave;
+            //countdown = TimeBetweenWave;
             return;
         }
 
@@ -56,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        countdown = wave.timeBetweenWave;
         WayPoints.SetWaypointsSet(wave.wayPointSet);
         spawnPoint = WayPoints.GetStartPoint();
 

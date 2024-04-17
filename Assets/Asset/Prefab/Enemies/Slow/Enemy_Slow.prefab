@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20234d5b54bab62468562dd278fe2bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 7
+  startSpeed: 4
   speed: 10
   hp: 350
   drop: 50

@@ -9,4 +9,5 @@ public class Wave
     public int[] count; // # of enemy
     public float[] rate; // Spawn rate
     public int wayPointSet; // Path
+    public int timeBetweenWave;
 }

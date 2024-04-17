@@ -25,7 +25,7 @@ public class Turret : MonoBehaviour
     public bool userLaser = false;
     public ParticleSystem impactEffect;
     public Light impactLight;
-    public int damgeOverTime = 10;
+    public float damgeOverTime = 10;
     public float slowPercent = 0.5f;
 
     [Header("Unity Setup Field")]

@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float speed;
 
     public float hp;
-    private float startHP = 100;
+    public float startHP = 100;
     public int drop = 10;
     public GameObject deathEffect;
 
