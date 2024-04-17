@@ -20286,7 +20286,7 @@ MonoBehaviour:
     rate:
     - 0.7
     wayPointSet: 0
-    timeBetweenWave: 18
+    timeBetweenWave: 20
   - enemy:
     - {fileID: 5753360549441103403, guid: e5f1f8bc822203e4298a6a615406b3ba, type: 3}
     - {fileID: 5753360549441103403, guid: c163a6190cb540a47bf59fe4279884c2, type: 3}
@@ -20376,7 +20376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8121e665b488fc846a425c19b842663c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 10000
+  startMoney: 170
   startLives: 20
 --- !u!114 &1972538136
 MonoBehaviour:
@@ -21125,17 +21125,17 @@ MonoBehaviour:
     prefab: {fileID: 7784586913545930396, guid: 2f9ce0e3684dc9542a3fef5c44f6687d, type: 3}
     cost: 70
     upgradedPrefab: {fileID: 7784586913545930396, guid: eb14215f09e0c8d4992bf0fe7c532c7a, type: 3}
-    upgradeCost: 150
+    upgradeCost: 110
   missileTurret:
     prefab: {fileID: 9194188927836840235, guid: 79fff7389bb9e4844a16f871bd6a67bf, type: 3}
     cost: 125
     upgradedPrefab: {fileID: 9194188927836840235, guid: 6a4182fe8a141fc4a81bb6ad0b43049c, type: 3}
-    upgradeCost: 350
+    upgradeCost: 220
   laserBeamer:
     prefab: {fileID: 1762912724010579324, guid: 7b468170830b4d14aa5323d5e9859e90, type: 3}
     cost: 100
     upgradedPrefab: {fileID: 1762912724010579324, guid: 4bffec30e069b9648934d7297a6b2763, type: 3}
-    upgradeCost: 500
+    upgradeCost: 160
 --- !u!114 &2060804410
 MonoBehaviour:
   m_ObjectHideFlags: 0

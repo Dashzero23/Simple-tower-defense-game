@@ -376,6 +376,7 @@ MonoBehaviour:
   startSpeed: 4
   speed: 10
   hp: 350
+  startHP: 100
   drop: 50
   deathEffect: {fileID: 6020292408261770835, guid: 5957cea9e1244e345a395dd93637df3f, type: 3}
   healthBar: {fileID: 4994420554145014740}
