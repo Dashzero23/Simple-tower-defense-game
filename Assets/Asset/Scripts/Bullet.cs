@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, true);
         }
     }
 

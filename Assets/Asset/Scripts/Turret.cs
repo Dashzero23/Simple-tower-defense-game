@@ -103,7 +103,7 @@ public class Turret : MonoBehaviour
                 {
                     Shoot();
                     curBurst++;
-                    fireCD = 1f / fireRate;
+                    fireCD = fireRate;
                 }
 
                 fireCD -= Time.deltaTime;
@@ -150,7 +150,7 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        targetEnemy.TakeDamage(damgeOverTime * Time.deltaTime);
+        targetEnemy.TakeDamage(damgeOverTime * Time.deltaTime, false);
         targetEnemy.Slow(slowPercent);
 
         foreach (Transform firePoint in firePoints)

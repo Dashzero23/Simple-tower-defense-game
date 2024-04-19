@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 12
-  fireRate: 0.4
+  fireRate: 3
   burstRate: 0
   burstCount: 1
   bulletPrefab: {fileID: 4209885248589365959, guid: 16ee214fc5e7248408d07dcd7a6d3b1d, type: 3}
