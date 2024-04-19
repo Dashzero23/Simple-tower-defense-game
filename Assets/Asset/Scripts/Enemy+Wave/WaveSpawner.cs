@@ -31,12 +31,7 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        /*if (EnemiesAlive > 0)
-        {
-            return;
-        }*/
-
-        if (countdown <= 0)
+        if (countdown <= 0 && waveIndex < waves.Length)
         {
             StartCoroutine(SpawnWave());
             //countdown = TimeBetweenWave;
@@ -63,7 +58,9 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waves[waveIndex];
 
         countdown = wave.timeBetweenWave;
-        
+
+        waveIndex++;
+
         foreach (int value in wave.count)
         {
             EnemiesAlive += value;
@@ -81,8 +78,6 @@ public class WaveSpawner : MonoBehaviour
                 yield return new WaitForSeconds(enemy.stat.rate);
             }
         }
-
-        waveIndex++;
     }
 
     void SpawnEnemy(GameObject enemy)
