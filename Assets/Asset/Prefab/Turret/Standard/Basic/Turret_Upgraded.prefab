@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 12
-  fireRate: 0.8
+  fireRate: 0.3
   burstRate: 0
   burstCount: 1
   bulletPrefab: {fileID: 3971357262096503524, guid: 1d72f973e589d9746afeea5f7bd58457, type: 3}
@@ -209,6 +209,7 @@ MonoBehaviour:
   enemyTag: enemy
   firePoints:
   - {fileID: 1233510032517281291}
+  shootingAnim: {fileID: 0}
 --- !u!1 &7925743071516744075
 GameObject:
   m_ObjectHideFlags: 0

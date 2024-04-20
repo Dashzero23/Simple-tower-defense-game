@@ -223,13 +223,14 @@ MonoBehaviour:
   userLaser: 1
   impactEffect: {fileID: 9145619938447384647}
   impactLight: {fileID: 515417139270561413}
-  damgeOverTime: 4.3
-  slowPercent: 0.7
+  damgeOverTime: 4.8
+  slowPercent: 0.6
   turnSpeed: 10
   partToRotate: {fileID: 1706087757247019257}
   enemyTag: enemy
   firePoints:
   - {fileID: 5515809142064695487}
+  shootingAnim: {fileID: 0}
 --- !u!1 &1816634720687298970
 GameObject:
   m_ObjectHideFlags: 0

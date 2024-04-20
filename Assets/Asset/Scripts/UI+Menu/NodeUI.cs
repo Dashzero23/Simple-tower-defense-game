@@ -19,7 +19,7 @@ public class NodeUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition();
 
-        //SetButtonSprites(specialButtons, target.turretBlueprint.specialSprites);
+        SetButtonSprites(specialButtons, target.turretBlueprint.specialSprites);
 
         if (target.upgradeLevel < target.turretBlueprint.upgradedPrefab.Length)
         {

@@ -33,6 +33,7 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
     public string enemyTag = "enemy";
     public Transform[] firePoints;
+    public Animator shootingAnim;
 
     void Start()
     {
@@ -123,6 +124,11 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
+        if (shootingAnim != null)
+        {
+            shootingAnim.SetBool("Shoot", true);
+        }
+
         foreach (Transform firePoint in firePoints)
         {
             GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
