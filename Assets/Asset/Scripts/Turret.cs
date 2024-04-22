@@ -12,13 +12,13 @@ public class Turret : MonoBehaviour
     
     [Header("Use Bullet (default)")]
     public float fireRate = 1f;
-    private float fireCD = 0f;
-    
-    public int burstRate = 0;
+    private float fireCD;
+    public float burstRate = 0f;
     public int burstCount = 1;
+    public bool useBurst;
 
-    private float burstCD = 0;
-    private int curBurst = 0;
+    private float burstCD = 0f;
+    private float curBurst = 0f;
     public GameObject bulletPrefab;
 
     [Header("Use Laser")]
@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour
     public Light impactLight;
     public float damgeOverTime = 10;
     public float slowPercent = 0.5f;
+    public float chargeTime = 0f;
 
     [Header("Unity Setup Field")]
     public float turnSpeed = 10f;
@@ -37,7 +38,7 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.1f);
     }
 
     void UpdateTarget()
@@ -85,6 +86,7 @@ public class Turret : MonoBehaviour
                 impactLight.enabled = false;
             }
 
+            StopAllCoroutines();
             return;
         }
 
@@ -93,36 +95,50 @@ public class Turret : MonoBehaviour
 
         if (userLaser)
         {
-            Laser();
+            StartCoroutine("Laser");
         }
 
         else
         {
-            if (curBurst < burstCount && curBurst < burstCount)
+            if (useBurst)
+            {
+                if (curBurst < burstCount)
+                {
+                    StartCoroutine("Shoot");
+
+                    if (target  == null)
+                    {
+                        burstCD -= Time.deltaTime;
+                    }
+                }
+
+                else
+                {
+                    if (burstCD <= 0f)
+                    {
+                        curBurst = 0;
+                    }
+                    burstCD -= Time.deltaTime;
+                }
+            }
+            
+            else
             {
                 if (fireCD <= 0f)
                 {
-                    Shoot();
-                    curBurst++;
+                    StartCoroutine("Shoot");
                     fireCD = fireRate;
                 }
 
-                fireCD -= Time.deltaTime;
-                burstCD = burstRate;
-            }
-
-            else
-            {
-                if (burstCD <= 0f)
+                else
                 {
-                    curBurst = 0;
+                    fireCD -= Time.deltaTime;
                 }
-                burstCD -= Time.deltaTime;
             }
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
         if (shootingAnim != null)
         {
@@ -138,6 +154,20 @@ public class Turret : MonoBehaviour
             {
                 bullet.Seek(target);
             }
+
+            if (useBurst)
+            {
+                burstCD = burstRate;
+                curBurst++;
+                yield return new WaitForSeconds(fireRate);
+            }
+        }
+
+        yield return new WaitForSeconds(fireRate);
+
+        if (shootingAnim != null)
+        {
+            shootingAnim.SetBool("Shoot", false);
         }
     }
 
@@ -154,8 +184,10 @@ public class Turret : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
-    void Laser()
+    IEnumerator Laser()
     {
+        yield return new WaitForSeconds(chargeTime);
+
         targetEnemy.TakeDamage(damgeOverTime * Time.deltaTime, false);
         targetEnemy.Slow(slowPercent);
 

@@ -3007,8 +3007,10 @@ MonoBehaviour:
     - {fileID: 7784586913545930396, guid: a39aa6ac33e136b4e90ccf2d95fbf34d, type: 3}
     specialPrefab:
     - {fileID: 8295076675353783610, guid: 90b381bbddbff1f4e9cebacd3ce16f17, type: 3}
+    - {fileID: 5785600138357567789, guid: efc7154e15a3f76439fc90b5b745054e, type: 3}
     specialSprites:
     - {fileID: 21300000, guid: 4acdb583e4e56f94ab9cdb14fd39b8a0, type: 3}
+    - {fileID: 21300000, guid: 2ad28d9b6fe4e8d4baf897e2092ad121, type: 3}
     upgradeCost: 6400000096000000e6000000
   missileTurret:
     prefab: {fileID: 9194188927836840235, guid: 79fff7389bb9e4844a16f871bd6a67bf, type: 3}
@@ -3016,8 +3018,12 @@ MonoBehaviour:
     upgradedPrefab:
     - {fileID: 9194188927836840235, guid: 6a4182fe8a141fc4a81bb6ad0b43049c, type: 3}
     - {fileID: 9194188927836840235, guid: 995743f3185f2b44c8e5dbf50ba6fcf0, type: 3}
-    specialPrefab: []
-    specialSprites: []
+    specialPrefab:
+    - {fileID: 9217809024435201588, guid: bb9e6d1935a7e4948bf5743a5137d1a4, type: 3}
+    - {fileID: 6620304745463316499, guid: 6f64d84880c4faa4688738e80a793be4, type: 3}
+    specialSprites:
+    - {fileID: 21300000, guid: 5dc4bf3ae280c9c41bd39afdaba67cc9, type: 3}
+    - {fileID: 21300000, guid: 2036a29e9d203d243b5c0f7524c5d972, type: 3}
     upgradeCost: dc0000004001000077010000
   laserBeamer:
     prefab: {fileID: 1762912724010579324, guid: 7b468170830b4d14aa5323d5e9859e90, type: 3}
@@ -3025,8 +3031,12 @@ MonoBehaviour:
     upgradedPrefab:
     - {fileID: 1762912724010579324, guid: 4bffec30e069b9648934d7297a6b2763, type: 3}
     - {fileID: 1762912724010579324, guid: 0c3d3b1caeab64f4698704736312743e, type: 3}
-    specialPrefab: []
-    specialSprites: []
+    specialPrefab:
+    - {fileID: 479497078061778322, guid: cc7e338c30ee7d24cb732b661906fe87, type: 3}
+    - {fileID: 4213146311273099568, guid: 4edf9d76986a38947afeef0b3c05036e, type: 3}
+    specialSprites:
+    - {fileID: 21300000, guid: 1e1c650e4ba4c8845b65f1b9cbf3b809, type: 3}
+    - {fileID: 21300000, guid: 90ee1e5d440687a458b3fb297ba665af, type: 3}
     upgradeCost: a0000000f00000002c010000
 --- !u!114 &5819435862735231991
 MonoBehaviour:
