@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         isDead = true;
 
         GameObject effect = Instantiate(stat.deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+        Destroy(effect, 2f);
 
         PlayerStat.Money += stat.drop;
         WaveSpawner.EnemiesAlive--;

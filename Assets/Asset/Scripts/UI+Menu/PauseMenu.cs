@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (PlayerPrefs.GetString("first") == "true")
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+            if (Input.anyKeyDown)
             {
                 exitTutorial();
                 return;
