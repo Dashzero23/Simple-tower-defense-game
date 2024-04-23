@@ -65,5 +65,6 @@ public class PauseMenu : MonoBehaviour
         Debug.Log(PlayerPrefs.GetString("first"));
         tutorialUI.SetActive(false);
         Time.timeScale = 1f;
+        PlayerPrefs.Save();
     }
 }
