@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e019e04e6c5030d4c8584230c2a7c656, type: 3}
-  m_Name: DuneRaider
+  m_Name: Goblin
   m_EditorClassIdentifier: 
-  startSpeed: 6
-  startHP: 140
-  drop: 16
-  physArmor: 30
+  startSpeed: 10
+  startHP: 16
+  drop: 3
+  physArmor: 0
   lasArmor: 0
-  live: 1
-  rate: 0.7
-  deathEffect: {fileID: 6020292408261770835, guid: 53677decabc7e5642981505c3c67348d, type: 3}
+  live: 0
+  rate: 0.5
+  deathEffect: {fileID: 6020292408261770835, guid: b6957a3df348818439e8f106723caaf7, type: 3}

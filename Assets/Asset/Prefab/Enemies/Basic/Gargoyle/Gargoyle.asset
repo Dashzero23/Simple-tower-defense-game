@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e019e04e6c5030d4c8584230c2a7c656, type: 3}
-  m_Name: Slow
+  m_Name: Gargoyle
   m_EditorClassIdentifier: 
-  startSpeed: 5
-  startHP: 100
-  drop: 20
-  deathEffect: {fileID: 6020292408261770835, guid: 5957cea9e1244e345a395dd93637df3f, type: 3}
+  startSpeed: 6
+  startHP: 72
+  drop: 12
+  physArmor: 0
+  lasArmor: 0
+  live: 1
+  rate: 0.7
+  deathEffect: {fileID: 6020292408261770835, guid: 05b73342c22425346b6b696fdd98f20c, type: 3}

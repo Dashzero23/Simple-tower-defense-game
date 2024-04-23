@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8372645513285794440}
   - component: {fileID: 936658432082041056}
   m_Layer: 0
-  m_Name: EnemyDeathEffect_Fast
+  m_Name: Death_Gargoyle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4844,7 +4844,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a68511e2b18720345b45acbaa0fcb1d0, type: 2}
+  - {fileID: 2100000, guid: 3caab0112dde6204dac9ea2f001ff554, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: -2868253713117222774}
   - component: {fileID: 3902701547861817761}
   m_Layer: 0
-  m_Name: Enemy_Fast
+  m_Name: Orc
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55b5f42be84463e4ab2919217b460114, type: 2}
+  - {fileID: 2100000, guid: f378275eed12a26499b3e266a8dddecc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20234d5b54bab62468562dd278fe2bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: 79733336bb5e6ca45836ec432ae47c8f, type: 2}
+  stat: {fileID: 11400000, guid: ed39d8830ad96c1468d727c31a556d68, type: 2}
   speed: 10
   hp: 16
   healthBar: {fileID: 4994420554145014740}
@@ -389,3 +389,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac20cd9f6765fbd41af7b2641c56a222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: []

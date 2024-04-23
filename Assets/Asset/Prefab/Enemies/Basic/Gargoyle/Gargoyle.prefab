@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: -2868253713117222774}
   - component: {fileID: 3902701547861817761}
   m_Layer: 0
-  m_Name: Enemy_Slow
+  m_Name: Gargoyle
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66dc7446471525745aeac7082dbdc9a1, type: 2}
+  - {fileID: 2100000, guid: 3caab0112dde6204dac9ea2f001ff554, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -373,12 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20234d5b54bab62468562dd278fe2bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 4
+  stat: {fileID: 11400000, guid: ed39d8830ad96c1468d727c31a556d68, type: 2}
   speed: 10
-  hp: 150
-  startHP: 100
-  drop: 50
-  deathEffect: {fileID: 6020292408261770835, guid: 5957cea9e1244e345a395dd93637df3f, type: 3}
+  hp: 16
   healthBar: {fileID: 4994420554145014740}
 --- !u!114 &3902701547861817761
 MonoBehaviour:
@@ -392,3 +389,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac20cd9f6765fbd41af7b2641c56a222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: []
