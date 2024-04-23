@@ -8,11 +8,15 @@ public class CompleteLevel : MonoBehaviour
     public string nextLevel = "Level2";
     public int levelUnlock = 2;
 
-    public void Continue()
+    public void Awake()
     {
         PlayerPrefs.SetInt("levelReached", levelUnlock);
-        sceneFader.FadeTo(nextLevel);
         PlayerPrefs.Save();
+    }
+
+    public void Continue()
+    {
+        sceneFader.FadeTo(nextLevel);
     }
 
     public void Menu()
