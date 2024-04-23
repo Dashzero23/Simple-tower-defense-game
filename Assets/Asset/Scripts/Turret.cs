@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -86,6 +85,11 @@ public class Turret : MonoBehaviour
                 impactLight.enabled = false;
             }
 
+            if (shootingAnim)
+            {
+                shootingAnim.SetBool("Shoot", false);
+            }
+
             StopAllCoroutines();
             return;
         }
@@ -140,7 +144,7 @@ public class Turret : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        if (shootingAnim != null)
+        if (shootingAnim)
         {
             shootingAnim.SetBool("Shoot", true);
         }
@@ -160,12 +164,15 @@ public class Turret : MonoBehaviour
                 burstCD = burstRate;
                 curBurst++;
                 yield return new WaitForSeconds(fireRate);
+                if (shootingAnim)
+                {
+                    shootingAnim.SetBool("Shoot", false);
+                }
             }
         }
 
         yield return new WaitForSeconds(fireRate);
-
-        if (shootingAnim != null)
+        if (shootingAnim)
         {
             shootingAnim.SetBool("Shoot", false);
         }
@@ -193,6 +200,10 @@ public class Turret : MonoBehaviour
 
         foreach (Transform firePoint in firePoints)
         {
+            if (target == null)
+            {
+                yield return 0;
+            }
             LineRenderer lineRenderer = firePoint.GetComponent<LineRenderer>();
 
             if (lineRenderer != null)

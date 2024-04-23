@@ -18,5 +18,5 @@ MonoBehaviour:
   physArmor: 30
   lasArmor: 0
   live: 1
-  rate: 0.7
+  rate: 0.85
   deathEffect: {fileID: 6020292408261770835, guid: f498dc149514b2344bde84219efdd499, type: 3}

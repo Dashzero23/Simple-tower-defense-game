@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,7 +17,7 @@ public class GameManager : MonoBehaviour
             return; 
         }
         
-        if (Input.GetKeyDown("e"))
+        /*if (Input.GetKeyDown("e"))
         {
             EndGame();
         }
@@ -27,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             WinLevel();
-        }
+        }*/
 
         if (PlayerStat.Lives <= 0)
         {

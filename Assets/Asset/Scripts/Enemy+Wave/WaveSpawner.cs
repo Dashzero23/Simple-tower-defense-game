@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
-using Unity.VisualScripting;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -57,28 +53,50 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        // Set the countdown timer for the next wave
         countdown = wave.timeBetweenWave;
 
+        // Increment wave index to move to the next wave
         waveIndex++;
 
+        // Calculate the total number of enemies in the current wave
         foreach (int value in wave.count)
         {
             EnemiesAlive += value;
         }
 
-        for (int i = 0; i < wave.enemy.Length; i++)
+        if (wave.multiSpawn)
         {
-            Enemy enemy = wave.enemy[i].GetComponent<Enemy>();
-            curPath = WayPoints.SetWaypointsSet(wave.wayPointSet[i]);
-            spawnPoint = curPath[0];
-
-            for (int j = 0; j < wave.count[i]; j++)
+            // Multi-spawn: start spawning from all sets at once
+            for (int i = 0; i < wave.enemy.Length; i++)
             {
-                SpawnEnemy(wave.enemy[i]);
-                yield return new WaitForSeconds(enemy.stat.rate);
+                StartCoroutine(SpawnEnemySet(wave, i));
+            }
+        }
+        else
+        {
+            // Sequential spawn: spawn each set of enemies one by one
+            for (int i = 0; i < wave.enemy.Length; i++)
+            {
+                yield return StartCoroutine(SpawnEnemySet(wave, i));
             }
         }
     }
+
+    IEnumerator SpawnEnemySet(Wave wave, int setIndex)
+    {
+        Enemy enemy = wave.enemy[setIndex].GetComponent<Enemy>();
+        float rate = enemy.stat.rate;
+        curPath = WayPoints.SetWaypointsSet(wave.wayPointSet[setIndex]);
+        spawnPoint = curPath[0];
+
+        for (int j = 0; j < wave.count[setIndex]; j++)
+        {
+            SpawnEnemy(wave.enemy[setIndex]);
+            yield return new WaitForSeconds(rate);
+        }
+    }
+
 
     void SpawnEnemy(GameObject enemy)
     {
