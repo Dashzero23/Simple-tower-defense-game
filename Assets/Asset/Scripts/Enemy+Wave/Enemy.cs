@@ -20,11 +20,11 @@ public class Enemy : MonoBehaviour
     {
         if(physical)
         {
-            hp -= amount * (1 - stat.physArmor);
+            hp -= amount * ((100 - stat.physArmor)/100);
         }
         else
         {
-            hp -= amount * (1 - stat.lasArmor);
+            hp -= amount * ((100 - stat.lasArmor)/100);
         }
         
         healthBar.fillAmount = hp / stat.startHP;

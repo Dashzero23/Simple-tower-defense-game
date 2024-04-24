@@ -9753,7 +9753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224544501025763965, guid: b1714e546137fad46bbbb88eaca302a0, type: 3}
       propertyPath: nextLevel
-      value: Level3
+      value: LevelSelector
       objectReference: {fileID: 0}
     - target: {fileID: 224544501025763965, guid: b1714e546137fad46bbbb88eaca302a0, type: 3}
       propertyPath: sceneFader
