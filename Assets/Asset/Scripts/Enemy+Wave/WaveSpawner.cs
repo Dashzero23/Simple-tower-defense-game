@@ -53,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+
         // Set the countdown timer for the next wave
         countdown = wave.timeBetweenWave;
 
@@ -70,6 +71,8 @@ public class WaveSpawner : MonoBehaviour
             // Multi-spawn: start spawning from all sets at once
             for (int i = 0; i < wave.enemy.Length; i++)
             {
+                yield return new WaitForSeconds(wave.delay[i]);
+
                 StartCoroutine(SpawnEnemySet(wave, i));
             }
         }
