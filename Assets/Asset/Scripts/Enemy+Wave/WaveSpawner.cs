@@ -7,7 +7,6 @@ public class WaveSpawner : MonoBehaviour
     public static int EnemiesAlive = 0;
     public Wave[] waves;
     private Transform spawnPoint;
-    private Transform[] curPath;
 
     //public float TimeBetweenWave = 5f;
     private float countdown = 2f;
@@ -71,8 +70,6 @@ public class WaveSpawner : MonoBehaviour
             // Multi-spawn: start spawning from all sets at once
             for (int i = 0; i < wave.enemy.Length; i++)
             {
-                yield return new WaitForSeconds(wave.delay[i]);
-
                 StartCoroutine(SpawnEnemySet(wave, i));
             }
         }
@@ -88,23 +85,28 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnEnemySet(Wave wave, int setIndex)
     {
+        if (setIndex < wave.delay.Length)
+        {
+            yield return new WaitForSeconds(wave.delay[setIndex]);
+        }
+
         Enemy enemy = wave.enemy[setIndex].GetComponent<Enemy>();
         float rate = enemy.stat.rate;
-        curPath = WayPoints.SetWaypointsSet(wave.wayPointSet[setIndex]);
+        Transform[] curPath = WayPoints.SetWaypointsSet(wave.wayPointSet[setIndex]);
         spawnPoint = curPath[0];
 
         for (int j = 0; j < wave.count[setIndex]; j++)
         {
-            SpawnEnemy(wave.enemy[setIndex]);
+            SpawnEnemy(wave.enemy[setIndex], curPath);
             yield return new WaitForSeconds(rate);
         }
     }
 
 
-    void SpawnEnemy(GameObject enemy)
+    void SpawnEnemy(GameObject enemy, Transform[] wayPoint)
     {
         GameObject curEnemy = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemyMovement enemyMovement = curEnemy.GetComponent<EnemyMovement>();
-        enemyMovement.path = curPath;
+        enemyMovement.path = wayPoint;
     }
 }

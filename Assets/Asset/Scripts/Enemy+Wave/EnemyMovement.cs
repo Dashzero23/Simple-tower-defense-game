@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
-    [HideInInspector]
     public Transform[] path;
     private Transform target;
     private int WayPointIndex = 0;

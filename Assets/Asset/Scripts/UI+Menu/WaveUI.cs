@@ -7,6 +7,6 @@ public class WaveUI : MonoBehaviour
     public WaveSpawner waveSpawner;
     void Update()
     {
-        waveText.text = "Wave: " + PlayerStat.Lives.ToString() + "/" + waveSpawner.waves.Length;
+        waveText.text = "Wave: " + PlayerStat.Rounds.ToString() + "/" + waveSpawner.waves.Length;
     }
 }
