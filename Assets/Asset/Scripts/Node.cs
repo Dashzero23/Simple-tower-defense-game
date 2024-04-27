@@ -10,12 +10,11 @@ public class Node : MonoBehaviour
     public int upgradeLevel;
 
     private Renderer rend;
+
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
     public Blueprint turretBlueprint;
-    [HideInInspector]
-    //public bool isUpgraded = false;
 
     BuildManager buildManager;
     void Start()
@@ -23,6 +22,7 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         buildManager = BuildManager.Instance;
+        upgradeLevel = -1;
     }
 
     public Vector3 GetBuildPosition()
@@ -62,6 +62,7 @@ public class Node : MonoBehaviour
 
         turret = _turret;
         turretBlueprint = blueprint;
+        upgradeLevel = 0;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
@@ -80,8 +81,6 @@ public class Node : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab[upgradeLevel], GetBuildPosition(), Quaternion.identity);
         turret = _turret;
         upgradeLevel++;
-
-        //isUpgraded = true;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
@@ -105,7 +104,7 @@ public class Node : MonoBehaviour
         //isUpgraded = true;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        Destroy(effect, 1f);
     }
 
     public void SellTurret()
@@ -113,13 +112,20 @@ public class Node : MonoBehaviour
         PlayerStat.Money += GetSellAmount();
 
         GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        Destroy(effect, 2f);
 
         Destroy(turret);
         turretBlueprint = null;
-        upgradeLevel = 0;
-        //isUpgraded = false;
+        upgradeLevel = -1;
     }
+
+    public void DestroyTurret()
+    {
+        Destroy(turret);
+        turretBlueprint = null;
+        upgradeLevel = -1;
+    }
+
     void OnMouseEnter()
     {
         if(EventSystem.current.IsPointerOverGameObject())
